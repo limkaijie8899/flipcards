@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Learning Flip Cards</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:transparent;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+.flip-card{
+    width:340px;
+    height:240px;
+    perspective:1000px;
+    cursor:pointer;
+}
+
+.flip-card-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform 0.8s;
+    transform-style:preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner{
+    transform:rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:18px;
+    backface-visibility:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.flip-card-front{
+    background:linear-gradient(135deg,#3B82F6,#1D4ED8);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.flip-card-front h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.flip-card-front p{
+    font-size:16px;
+    opacity:0.95;
+}
+
+.flip-card-back{
+    background:#ffffff;
+    color:#333;
+    transform:rotateY(180deg);
+    padding:25px;
+    overflow:auto;
+}
+
+.flip-card-back h3{
+    color:#2563EB;
+    text-align:center;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.flip-card-back p{
+    font-size:15px;
+    line-height:1.7;
+    text-align:justify;
+}
+
+@media (max-width:768px){
+
+.container{
+    flex-direction:column;
+}
+
+.flip-card{
+    width:95%;
+    max-width:340px;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- KWLH -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+                <h2>📘 KWLH</h2>
+                <p>Click or Hover</p>
+            </div>
+
+            <div class="flip-card-back">
+                <h3>Kaedah KWLH</h3>
+
+                <p>
+                    Memulakan pembacaan dengan mengenal pasti apa yang diketahui
+                    <strong>(Know)</strong>, apa yang ingin diketahui
+                    <strong>(Want)</strong>, apa yang telah dipelajari
+                    <strong>(Learned)</strong>, dan bagaimana mendapatkan
+                    maklumat tambahan
+                    <strong>(How)</strong>.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SQ3R -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+                <h2>📗 SQ3R</h2>
+                <p>Click or Hover</p>
+            </div>
+
+            <div class="flip-card-back">
+
+                <h3>Kaedah SQ3R</h3>
+
+                <p>
+                    Melibatkan lima langkah:
+                    <strong>Survey</strong> (Meninjau),
+                    <strong>Question</strong> (Menyoal),
+                    <strong>Read</strong> (Membaca),
+                    <strong>Recite</strong> (Mengulang),
+                    dan
+                    <strong>Review</strong> (Menyemak semula).
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+// Click to flip (for mobile)
+document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', function () {
+        this.classList.toggle('flipped');
+    });
+});
+
+</script>
+
+</body>
+</html>
